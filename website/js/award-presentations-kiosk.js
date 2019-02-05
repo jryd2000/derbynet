@@ -99,11 +99,7 @@ var AwardPoller = {
     if (!award.reveal) {
       $(".reveal").hide();
 
-      var video = $("video.confetti");
-      video.hide();
-      video.get(0).pause();
-      video.get(0).currentTime = 0;
-      video.show();
+      stopConfetti();
 
       if (g_count == 0) {
         console.log("Hiding!");
@@ -112,16 +108,8 @@ var AwardPoller = {
       }
     } else if (!this.revealed) {
       $(".reveal").fadeIn(1000);
-      setTimeout(function() { $("video.confetti").get(0).play(); }, 500);
-      setTimeout(function() {
-        $("video.confetti").fadeOut(
-          500, function() {
-            var video = $("video.confetti");
-            video.get(0).pause();
-            video.get(0).currentTime = 0;
-            video.show();
-          }); },
-                 20500);
+      setTimeout(function() { startConfetti(); }, 500);
+      setTimeout(function() { stopConfetti(); }, 20500);
     }
     this.revealed = award.reveal;
   }
