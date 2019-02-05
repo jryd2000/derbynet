@@ -106,7 +106,11 @@ var AwardPoller = {
         console.log(award);
         ++g_count;
       }
-    } else if (!this.revealed) {
+    } else if (!this.revealed) {      
+      var canvas = document.getElementById("confetti-canvas");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      
       $(".reveal").fadeIn(1000);
       setTimeout(function() { startConfetti(); }, 500);
       setTimeout(function() { stopConfetti(); }, 20500);
