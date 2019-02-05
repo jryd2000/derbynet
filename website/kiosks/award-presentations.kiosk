@@ -12,6 +12,7 @@
 <script type="text/javascript" src="js/confetti.js"></script>
 </head>
 <body>
+<canvas id="confetti-canvas" class="confetti"></canvas>
 <div class="award-background">
   <div class="award-trophy" id="awardname"></div>
 
